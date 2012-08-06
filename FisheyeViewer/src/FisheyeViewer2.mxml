@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://www.adobe.com/2006/mxml" xmlns:qs="qs.controls.*"
+	layout="horizontal" horizontalGap="0" horizontalAlign="left"
+	paddingLeft="0" paddingTop="0" paddingBottom="0" paddingRight="0" 
+	backgroundGradientColors="[#FFFFFF, #FFFFFF]" width="550" height="600"
+	creationComplete="init()" click="displaySelectedImage(event)">	
+	
+	<Script>
+		<![CDATA[
+			public static const DIRECTION_HORIZONTAL:String = "horizontal";
+			public static const DIRECTION_VERTICAL:String = "vertical";
+			
+			public static const HORIZONTAL_ALIGN_LEFT:String = "left";
+			public static const HORIZONTAL_ALIGN_CENTER:String = "center";
+			public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
+			public static const HORIZONTAL_ALIGN_JUSTIFIED:String = "justified";
+			
+			public static const VERTICAL_ALIGN_TOP:String = "top";
+			public static const VERTICAL_ALIGN_CENTER:String = "center";
+			public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
+			public static const VERTICAL_ALIGN_JUSTIFIED:String = "justified";
+			
+			[Bindable] public var images:Array;
+			[Bindable] public var currentDP:Array;
+		
+			private function init():void
+			{
+				var images:Array = new Array();
+				
+				// TODO: modify how many pictures to load, where to load them from, and of what type
+				for(var i:int = 15; i < 25; i++)
+				{
+					images.push("../images/" + i + ".jpg");
+				}  // for loop
+				
+				this.images = currentDP = images;
+				
+				// TODO: modify the look and feel of the fisheye
+				fisheye.direction = DIRECTION_VERTICAL;
+				fisheye.setStyle("horizontalAlign", HORIZONTAL_ALIGN_CENTER);
+				fisheye.setStyle("verticalAlign", VERTICAL_ALIGN_CENTER);
+				fisheye.setStyle("defaultSpacing", 5);
+				fisheye.setStyle("defaultScale", 0.15);
+				fisheye.setStyle("hilightMaxScale", 0.15);
+				fisheye.setStyle("hilightScaleRadius", 2);
+				fisheye.setStyle("hilightScaleSlope", 1);
+				fisheye.setStyle("animationSpeed", 0.2);
+			}  // init
+			
+			public function displaySelectedImage(event:MouseEvent):void
+			{
+				selectedImage.source = images[fisheye.selectedIndex];
+			}  // displaySelectedImage
+		]]>
+	</Script>
+	
+	<HBox width="500" horizontalGap="0" height="550" styleName="insetBox" clipContent="true" horizontalAlign="center" horizontalScrollPolicy="off" verticalScrollPolicy="off">
+		<Image id="selectedImage" width="100%" height="100%" horizontalAlign="center" verticalAlign="middle" />
+		<Spacer width="10" />
+		<qs:Fisheye id="fisheye" width="80" height="100%" dataProvider="{currentDP}" 
+				stateProperty="currentState" rolloverValue="highlighted" defaultValue="" selectedValue="selected"
+				verticalAlign="top"
+				horizontalAlign="center" >		
+			<qs:itemRenderer>
+				<Component id="imageRenderer">
+					<qs:BitmapTile>
+					<qs:states>
+						<State name="selected">
+							<SetStyle name="borderColor" value="#E27C0E" />
+							<SetStyle name="borderAlpha" value="1" />
+							<SetStyle name="borderWidth" value="3" />
+							<SetProperty name="filters" />
+						</State>
+						<State name="highlighted">
+							<SetProperty name="filters" />
+						</State>
+					</qs:states>						
+					</qs:BitmapTile>
+				</Component>
+			</qs:itemRenderer>
+		</qs:Fisheye>
+	</HBox>
+
+</Application>
