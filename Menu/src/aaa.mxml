@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+layout="vertical" 
+verticalAlign="middle" 
+backgroundColor="white"> 
+
+<mx:Style> 
+TitleWindow { 
+roundedBottomCorners: false; 
+borderColor: haloSilver; 
+backgroundColor: haloSilver; 
+borderAlpha: 0.8; 
+backgroundAlpha: 0.8; 
+dropShadowEnabled: false; 
+} 
+</mx:Style> 
+
+<mx:Script> 
+<![CDATA[ 
+import mx.controls.CheckBox; 
+import mx.controls.dataGridClasses.DataGridColumn; 
+
+private function checkBox_change(evt:Event):void { 
+var ch:CheckBox = evt.currentTarget as CheckBox; 
+var idx:int = int(ch.data); 
+var obj:Object = arrColl.getItemAt(idx); 
+obj.sel = ch.selected; 
+arrColl.disableAutoUpdate(); 
+arrColl.setItemAt(obj, idx); 
+} 
+
+private function selectAll(evt:Event):void { 
+var idx:int; 
+var item:Object; 
+for (idx=0; idx<arrColl.length; idx++) { 
+item = arrColl.getItemAt(idx); 
+item.sel = CheckBox(evt.currentTarget).selected; 
+} 
+arrColl.refresh(); 
+} 
+
+private function sel_labelFunc(item:Object, col:DataGridColumn):String { 
+var bool:Boolean = item.hasOwnProperty("sel") && 
+(item.sel == "true" || item.sel == true); 
+return bool.toString(); 
+} 
+]]> 
+</mx:Script> 
+
+<mx:ArrayCollection id="arrColl"> 
+<mx:source> 
+<mx:Array id="arr"> 
+<mx:Object label="Button" /> 
+<mx:Object label="ButtonBar" /> 
+<mx:Object label="CheckBox" /> 
+<mx:Object label="ColorPicker" sel="true" /> 
+<mx:Object label="ComboBox" sel="true" /> 
+<mx:Object label="DataGrid" sel="true" /> 
+<mx:Object label="DateChooser" /> 
+<mx:Object label="DateField" sel="true" /> 
+<mx:Object label="HorizontalList" /> 
+<mx:Object label="HRule" /> 
+<mx:Object label="HSlider" /> 
+<mx:Object label="Image" /> 
+<mx:Object label="Label" /> 
+<mx:Object label="LinkBar" /> 
+<mx:Object label="LinkButton" /> 
+<mx:Object label="List" sel="true" /> 
+<mx:Object label="Menu" /> 
+<mx:Object label="MenuBar" /> 
+<mx:Object label="NumericStepper" sel="true" /> 
+<mx:Object label="ProgressBar" /> 
+<mx:Object label="RadioButton" /> 
+<mx:Object label="RadioButtonGroup" /> 
+<mx:Object label="RichTextEditor" sel="true" /> 
+<mx:Object label="Spacer" /> 
+<mx:Object label="SWFLoader" /> 
+<mx:Object label="TabBar" /> 
+<mx:Object label="Text" /> 
+<mx:Object label="TextArea" /> 
+<mx:Object label="TextInput" /> 
+<mx:Object label="TileList" /> 
+<mx:Object label="Tree" sel="true" /> 
+<mx:Object label="VideoDisplay" /> 
+<mx:Object label="VRule" /> 
+<mx:Object label="VScrollBar" /> 
+<mx:Object label="VSlider" /> 
+</mx:Array> 
+</mx:source> 
+</mx:ArrayCollection> 
+
+<mx:ApplicationControlBar dock="true"> 
+<mx:PopUpButton id="popUpButton" 
+label="Please select some components" 
+openAlways="true" 
+close="arrColl.refresh();"> 
+<mx:popUp> 
+<mx:TitleWindow id="titleWin" 
+height="200" 
+showCloseButton="true" 
+verticalScrollPolicy="on" 
+horizontalScrollPolicy="off" 
+close="popUpButton.close();"> 
+<mx:ToolBar width="320"> 
+<mx:Repeater id="myRep" 
+dataProvider="{arrColl}"> 
+<mx:CheckBox data="{myRep.currentIndex}" 
+label="{myRep.currentItem.label}" 
+selected="{myRep.currentItem.sel}" 
+change="checkBox_change(event);" 
+width="100" /> 
+</mx:Repeater> 
+</mx:ToolBar> 
+<mx:ControlBar> 
+<mx:CheckBox label="Select All" 
+labelPlacement="left" 
+change="selectAll(event);" /> 
+</mx:ControlBar> 
+</mx:TitleWindow> 
+</mx:popUp> 
+</mx:PopUpButton> 
+</mx:ApplicationControlBar> 
+
+<mx:DataGrid dataProvider="{arrColl}"> 
+<mx:columns> 
+<mx:DataGridColumn dataField="label" /> 
+<mx:DataGridColumn dataField="sel" 
+labelFunction="sel_labelFunc" /> 
+</mx:columns> 
+</mx:DataGrid> 
+
+</mx:Application> 

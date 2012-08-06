@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300">
+<mx:Script>
+	<![CDATA[
+		import mx.events.ValidationResultEvent;
+		 import mx.controls.Alert;
+		private function vr(e:ValidationResultEvent):void
+		{
+			if(e.type==ValidationResultEvent.VALID)
+			mybtn.enabled=true;
+			else
+			mybtn.enabled=false;
+		}
+	]]>
+</mx:Script>
+	<mx:Button id="mybtn" x="121" y="195" label="Button" enabled="false" click="Alert.show('ok!')"/>
+	<mx:TextInput id="username" x="97" y="68" />
+	<mx:Validator required="true" source="{username}"  requiredFieldError="no" property="text" valid="vr(event)" invalid="vr(event)"/>
+	<mx:TextInput  id="pwd" x="97" y="98" focusIn="Alert.show('get!')"/>
+	<mx:TextInput  id="tel" x="97" y="142"/>
+</mx:Canvas>

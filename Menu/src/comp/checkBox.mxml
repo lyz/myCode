@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" xmlns:local="*">
+<mx:Script>
+	<![CDATA[
+	
+		internal function onclick():void
+		{
+			out.text="";
+			if(a.selected==true){
+				out.text+=a.label+"\n";
+			}
+			if(b.selected==true){
+				out.text+=b.label+"\n";
+			}
+			if(c.selected==true){
+				out.text+=c.label+"\n";
+			}
+			if(d.selected==true){
+				out.text+=d.label+"\n";
+			}
+			
+		}
+	]]>
+</mx:Script>
+	<mx:TextArea id="out" x="299" y="188" height="73"/>
+	<mx:VBox x="33" y="38" height="128" width="56">
+		<mx:CheckBox  id="a" label="A" click="onclick()"/>
+		<mx:CheckBox  id="b" label="B" click="onclick()"/>
+		<mx:CheckBox  id="c" label="C" click="onclick()"/>
+		<mx:CheckBox  id="d" label="D" click="onclick()"/>
+	</mx:VBox>
+	<mx:PopUpButton x="82" y="216" label="PopUpButton"/>
+	<mx:PopUpMenuButton x="82" y="267" label="PopUpMenuButton"/>
+	
+</mx:Canvas>

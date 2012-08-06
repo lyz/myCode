@@ -1,0 +1,103 @@
+/* Sergeants CSS file */
+
+/*Application { background-image: Embed('assets/BackgroundCat-1.jpg'); }*/
+
+.WrapperPanel{
+	borderStyle: solid;
+	headerHeight: 10;
+	shadowDistance: 1;
+	roundedBottomCorners: true;
+   	cornerRadius: 10;
+   	headerColors: #dfdfdd, #ffffff;
+}
+.SystemDashboardPanel{
+	borderStyle: solid;
+	headerHeight: 21;
+	shadowDistance: 1;
+	headerColors: #525451, #525451;
+	backgroundColor: #525451;
+	color: #ffffff;
+	roundedBottomCorners: true;
+   	cornerRadius: 10;
+}
+.SystemButtons{
+	color: #022E51;
+	cornerRadius: 7;	
+	fillColors: #fffeff, #cccccc, #f4f3f4, #ffffff;
+}
+.MenuButtons{
+	color: #ffffff;
+	cornerRadius: 1;	
+	fillColors: #0000ff, #0000ff, #0000ff, #0000ff;
+	textRollOverColor: #ffff00;
+	maxWidth: 180;
+}
+.AppViewStack{
+	paddingTop: 30;
+	paddingRight: 35;
+	paddingBottom: 35;
+	paddingLeft: 35;
+}
+/*
+Application {
+   backgroundGradientColors:#000033,#ffffff;
+   color: #000000;
+}
+Panel{
+	borderStyle: solid;
+	headerColors: #000033, #006633;	
+	cornerRadius: 7;
+	backgroundColor: #1A2428;
+	color: #ffffff;
+	shadowDistance: 1;
+}
+.FactDetail{
+	backgroundColor: #333333;	
+}
+List {
+   color: #000000;
+}
+
+DataGrid {
+   color: #000000;
+}
+
+TextInput {
+   color: #000000;
+}
+
+TextArea {
+   color: #000000;
+}
+
+ToggleButtonBar {
+	color:#ffffff;
+}
+*/
+VScrollBar {
+    downArrowUpSkin: Embed(source="/assets/downArrow.png");
+    downArrowOverSkin: Embed(source="/assets/downArrow.png");
+    downArrowDownSkin: Embed(source="/assets/downArrow.png");
+    upArrowUpSkin: Embed(source="/assets/upArrow.png");
+    upArrowOverSkin: Embed(source="/assets/upArrow.png");
+    upArrowDownSkin: Embed(source="/assets/upArrow.png");
+    thumbDownSkin: 
+    	Embed(source="/assets/thumb.png",
+        scaleGridLeft="7", scaleGridTop="5", 
+        scaleGridRight="8", scaleGridBottom="7");
+        
+    thumbUpSkin: 
+    	Embed(source="/assets/thumb.png",
+        scaleGridLeft="7", scaleGridTop="5", 
+        scaleGridRight="8", scaleGridBottom="7");
+        
+    thumbOverSkin: 
+    	Embed(source="/assets/thumb.png",
+        scaleGridLeft="7", scaleGridTop="5", 
+        scaleGridRight="8", scaleGridBottom="7");
+        
+    trackSkin: 
+    	Embed(source="/assets/scrolltrack.png",
+        scaleGridLeft="7", scaleGridTop="4", 
+        scaleGridRight="8", scaleGridBottom="6" );       
+}
