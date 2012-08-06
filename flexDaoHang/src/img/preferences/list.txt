@@ -1,0 +1,10 @@
+list.txt
+preferences-desktop-accessibility.png
+preferences-desktop-font.png
+preferences-desktop-locale.png
+preferences-desktop-screensaver.png
+preferences-desktop-theme.png
+preferences-desktop-wallpaper.png
+system-file-manager.png
+system-software-update.png
+utilities-terminal.png

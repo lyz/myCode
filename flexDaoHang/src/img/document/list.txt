@@ -1,0 +1,7 @@
+document-new.png
+document-open.png
+document-print-preview.png
+document-print.png
+document-properties.png
+document-save.png
+list.txt

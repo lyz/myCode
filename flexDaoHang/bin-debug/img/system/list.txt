@@ -1,0 +1,12 @@
+folder-remote.png
+folder.png
+list.txt
+network-server.png
+network-workgroup.png
+start-here.png
+system-lock-screen.png
+system-log-out.png
+system-search.png
+user-desktop.png
+user-home.png
+view-fullscreen.png

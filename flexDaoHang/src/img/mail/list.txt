@@ -1,0 +1,6 @@
+list.txt
+mail-forward.png
+mail-mark-junk.png
+mail-reply-all.png
+mail-reply-sender.png
+mail-send-receive.png

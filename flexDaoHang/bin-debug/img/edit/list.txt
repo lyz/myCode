@@ -1,0 +1,10 @@
+edit-copy.png
+edit-cut.png
+edit-delete.png
+edit-find-replace.png
+edit-find.png
+edit-paste.png
+edit-redo.png
+edit-select-all.png
+edit-undo.png
+list.txt

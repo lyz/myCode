@@ -1,0 +1,13 @@
+Graphics.fla
+PIM/
+application/
+clock.png
+document/
+edit/
+format/
+go/
+list.txt
+mail/
+media/
+prefs/
+system/
